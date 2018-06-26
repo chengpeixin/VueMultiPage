@@ -1,12 +1,20 @@
 <template>
   <div id="app">
-    行业数据
+    <div v-touch:tap="opendialog" class="shuai">
+      行业数据
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'app'
+  name: 'app',
+  methods: {
+    async opendialog () {
+      // 没辙呀
+      console.log(this.$http)
+    }
+  }
 }
 </script>
 
@@ -18,5 +26,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.shuai {
+  font-size: 20px;
 }
 </style>
