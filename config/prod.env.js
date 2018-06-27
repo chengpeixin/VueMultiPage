@@ -24,5 +24,5 @@ if (command == "build:alpha") {
 }
 module.exports = {
   NODE_ENV: '"production"',
-  "API_HOST": '"开发环境"'
+  "API_HOST": JSON.stringify(API_HOST)
 }

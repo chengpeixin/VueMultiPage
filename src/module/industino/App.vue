@@ -7,12 +7,13 @@
 </template>
 
 <script>
+import { getData } from './service/getData';
 export default {
   name: 'app',
   methods: {
     async opendialog () {
-      // 没辙呀
-      console.log(this.$http)
+      var { data } = await getData()
+      console.log(data)
     }
   }
 }
