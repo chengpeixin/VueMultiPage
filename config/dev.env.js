@@ -30,6 +30,7 @@ if (command == "dev:alpha") {
   API_HOST = alpha;
 }
 
+
 module.exports = merge(prodEnv, {
   NODE_ENV: '"development"',
   "API_HOST": JSON.stringify(API_HOST)

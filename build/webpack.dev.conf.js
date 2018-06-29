@@ -10,6 +10,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const portfinder = require('portfinder')
 var glob = require('glob')
+var qrcode = require('qrcode-terminal-alpha')
 
 const HOST = process.env.HOST
 const PORT = process.env.PORT && Number(process.env.PORT)
@@ -111,6 +112,25 @@ function getEntry(globPath) {
   return entries;
 }
 
+function getLocalIp() {
+  const os = require('os')
+  const nes = os.networkInterfaces()
+  let ips = []
+  let thisIp = ""
+  for (var ne in nes) {
+    ne = nes[ne]
+    for (let i = 0; i < ne.length; i++) {
+      if (/^(\d+\.){3}\d+$/.test(ne[i].address)) {
+        if (ne[i].address != '127.0.0.1') {
+          ips.push(ne[i].address)
+          thisIp = ne[i].address;
+        }
+      }
+    }
+  }
+  return thisIp
+}
+
 module.exports = new Promise((resolve, reject) => {
   portfinder.basePort = process.env.PORT || config.dev.port
   portfinder.getPort((err, port) => {
@@ -121,17 +141,18 @@ module.exports = new Promise((resolve, reject) => {
       process.env.PORT = port
       // add port to devServer config
       devWebpackConfig.devServer.port = port
-
       // Add FriendlyErrorsPlugin
       devWebpackConfig.plugins.push(new FriendlyErrorsPlugin({
         compilationSuccessInfo: {
-          messages: [`Your application is running here: http://${devWebpackConfig.devServer.host}:${port}`],
+          messages: [`本机访问: http://${devWebpackConfig.devServer.host}:${port}`, `局域网访问:${getLocalIp()}:${port}`],
         },
         onErrors: config.dev.notifyOnErrors ?
           utils.createNotifierCallback() : undefined
       }))
-
       resolve(devWebpackConfig)
+      qrcode.generate('This will be a small QRCode, eh!', {
+        small: true
+      });
     }
   })
 })

@@ -5674,6 +5674,10 @@ q@^1.1.2:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/q/-/q-1.5.1.tgz#7e32f75b41381291d04611f1bf14109ac00651d7"
 
+qrcode-terminal-alpha@^0.11.1:
+  version "0.11.1"
+  resolved "https://registry.yarnpkg.com/qrcode-terminal-alpha/-/qrcode-terminal-alpha-0.11.1.tgz#163f02a1db8f8e3597ef635ef3884b721a9f98f8"
+
 qs@6.5.1:
   version "6.5.1"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.1.tgz#349cdf6eef89ec45c12d7d5eb3fc0c870343a6d8"
