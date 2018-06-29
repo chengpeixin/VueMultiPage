@@ -1,4 +1,4 @@
 const state = {
-  count: '行业数据'
+  count: 0
 }
 export default state

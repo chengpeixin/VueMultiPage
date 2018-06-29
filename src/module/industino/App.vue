@@ -33,7 +33,7 @@ export default {
   },
   computed: {
     count () {
-      return this.$store.state.name
+      return this.$store.state.count
     }
   }
 }
