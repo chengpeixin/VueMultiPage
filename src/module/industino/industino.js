@@ -14,6 +14,7 @@ Vue.use(VueTouch)
 new Vue({
   el: '#app',
   router,
+  store,
   components: {
     App
   },
