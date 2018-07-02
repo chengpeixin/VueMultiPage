@@ -4,15 +4,23 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import Vuex from 'vuex'
+import {
+  Button,
+  Select,
+  Dialog
+} from 'muse-ui'
+import Helpers from 'muse-ui/lib/Helpers'
+import 'muse-ui/dist/muse-ui.css'
 import VueTouch from 'vue-touch-easyhi'
 import store from './store'
 
-// 引入共用js
-// import axios from '@/config/axios.js'
 Vue.config.productionTip = false
 Vue.use(VueTouch)
   .use(Vuex)
-
+  .use(Button)
+  .use(Select)
+  .use(Dialog)
+  .use(Helpers)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

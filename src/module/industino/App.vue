@@ -1,39 +1,18 @@
 <template>
   <div id="app">
-    <div v-touch:tap="opendialog" class="shuai">
-      {{count}}
-      <p>{{json.id}}</p>
-      <p>{{json.name}}</p>
-      <p>{{json.text}}</p>
-    </div>
+    <p v-touch:tap="go">
+      行业数据
+    </p>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import { getData } from './service/getData';
 export default {
   name: 'app',
-  data () {
-    return {
-      json: '',
-      name: ''
-    }
-  },
   methods: {
-    async opendialog () {
-      var { data } = await getData()
-      this.json = data
-    }
-  },
-  mounted () {
-    let i = 0
-    setInterval(() => {
-      this.$store.commit('setName', i++)
-    }, 1000)
-  },
-  computed: {
-    count () {
-      return this.$store.state.count
+    async go () {
+      this.$router.push('/one')
     }
   }
 }
@@ -47,13 +26,5 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-}
-
-.shuai {
-  font-size: 20px;
-
-  p {
-    color: red;
-  }
 }
 </style>

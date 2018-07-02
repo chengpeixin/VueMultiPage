@@ -150,7 +150,7 @@ module.exports = new Promise((resolve, reject) => {
           utils.createNotifierCallback() : undefined
       }))
       resolve(devWebpackConfig)
-      qrcode.generate('This will be a small QRCode, eh!', {
+      qrcode.generate(`http://${getLocalIp()}:${port}`, {
         small: true
       });
     }
