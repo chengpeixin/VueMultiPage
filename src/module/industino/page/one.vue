@@ -6,6 +6,9 @@
       <p>{{json.name}}</p>
       <p>{{json.text}}</p>
     </div>
+
+    <input type="text" v-model="ipt">
+    <button v-touch:tap="commit">提交</button>
   </div>
 </template>
 
@@ -18,13 +21,24 @@ export default {
     return {
       json: '',
       name: '',
-      openSimple: false
+      openSimple: false,
+      ipt: ''
     }
   },
   methods: {
     async opendialog () {
       var { data } = await getData()
       this.json = data
+    },
+    async commit () {
+      this.$util
+        .commit('isnum', this.ipt)
+        .then(function () {
+          console.log('1')
+        })
+        .catch(function () {
+          console.log('2')
+        })
     }
   },
   computed: {

@@ -4,6 +4,8 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import Vuex from 'vuex'
+import store from './store'
+import Util from '@/common/js/util'
 import {
   Button,
   Select,
@@ -12,8 +14,7 @@ import {
 import Helpers from 'muse-ui/lib/Helpers'
 import 'muse-ui/dist/muse-ui.css'
 import VueTouch from 'vue-touch-easyhi'
-import store from './store'
-
+Vue.prototype.$util = Util
 Vue.config.productionTip = false
 Vue.use(VueTouch)
   .use(Vuex)
