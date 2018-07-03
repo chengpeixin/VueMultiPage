@@ -26,6 +26,7 @@
     "axios": "^0.18.0",
     "cssnano": "^3.10.0",
     "cssnano-preset-advanced": "^4.0.0-rc.2",
+    "eruda": "^1.5.0",
     "glob": "^7.1.2",
     "muse-ui": "^3.0.0-rc.4",
     "postcss-aspect-ratio-mini": "^0.0.2",
