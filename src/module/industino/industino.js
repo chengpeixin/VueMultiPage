@@ -16,6 +16,7 @@ import 'muse-ui/dist/muse-ui.css'
 import VueTouch from 'vue-touch-easyhi'
 Vue.prototype.$util = Util
 Vue.config.productionTip = false
+
 Vue.use(VueTouch)
   .use(Vuex)
   .use(Button)

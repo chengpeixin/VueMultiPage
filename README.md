@@ -1,10 +1,15 @@
-Vue多页面配置，页面都放到`src/module/youpagte/youpage.html`
-简单省事
-基于Vue-cli2.x
-webpack3.x
-# install dependencies
-npm install
+# 基于Vue cli 2.0 多页面脚手架
+Vue多页面配置，争取做到开箱即用
+## 已有功能
+[x] 多页面配置
 
+[x] vw布局
+
+[ ] 移动端调试
+
+# npm install
+
+https://github.com/chengpeixin/VueMultiPage.git
 # serve with hot reload at localhost:8080
 npm run dev
 
