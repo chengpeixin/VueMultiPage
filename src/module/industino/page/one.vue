@@ -21,7 +21,6 @@ export default {
     return {
       json: '',
       name: '',
-      openSimple: false,
       ipt: ''
     }
   },
@@ -32,7 +31,7 @@ export default {
     },
     async commit () {
       this.$util
-        .commit('isnum', this.ipt)
+        .commit('isemail', this.ipt)
         .then(function () {
           console.log('1')
         })
