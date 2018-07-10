@@ -9,11 +9,18 @@ import Util from '@/common/js/util'
 
 import 'muse-ui/dist/muse-ui.css'
 import VueTouch from 'vue-touch-easyhi'
+
+import VueLazyLoad from 'vue-lazyload'
+import '@/common/css/index.styl'
+
 Vue.prototype.$util = Util
 Vue.config.productionTip = false
 
 Vue.use(VueTouch)
   .use(Vuex)
+  .use(VueLazyLoad, {
+    loading: require('@/common/image/default.png')
+  })
 
 /* eslint-disable no-new */
 new Vue({

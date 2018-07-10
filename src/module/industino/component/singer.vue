@@ -1,0 +1,162 @@
+<template>
+  <div>
+    <Scroll class="listview" :data="data" ref="listview">
+      <ul>
+        <li v-for="group in data" class="list-group" ref="listGroup">
+          <h2 class="list-group-title">{{group.title}}</h2>
+          <ul>
+            <li v-for="item in group.items" class="list-group-item">
+              <img class="avatar" v-lazy="item.avatar" />
+              <span class="name">{{item.name}}</span>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <div class="list-shortcut">
+        <ul>
+          <li v-for="(item,index) in shortcutList" class="item" :data-index="index" @touchstart.stop="onShortcut">
+            {{item}}
+          </li>
+        </ul>
+      </div>
+    </Scroll>
+  </div>
+</template>
+
+<script>
+import Scroll from "@/components/scroll.vue";
+import getData from "@/common/js/dom.js";
+export default {
+  props: {
+    data: {
+      type: Array,
+      default: []
+    }
+  },
+  methods: {
+    onShortcut(e) {
+      this.$refs.listview.scrollToElement(
+        this.$refs.listGroup[getData(e.target, "index")],
+        0
+      );
+    }
+  },
+  computed: {
+    shortcutList() {
+      return this.data.map(group => {
+        return group.title.substr(0, 1);
+      });
+    }
+  },
+  components: { Scroll }
+};
+</script>
+
+<style lang="stylus" scoped>
+// 颜色定义规范
+$color-background = #222;
+$color-background-d = rgba(0, 0, 0, 0.3);
+$color-highlight-background = #333;
+$color-dialog-background = #666;
+$color-theme = #ffcd32;
+$color-theme-d = rgba(255, 205, 49, 0.5);
+$color-sub-theme = #d93f30;
+$color-text = #fff;
+$color-text-d = rgba(255, 255, 255, 0.3);
+$color-text-l = rgba(255, 255, 255, 0.5);
+$color-text-ll = rgba(255, 255, 255, 0.8);
+// 字体定义规范
+$font-size-small-s = 10px;
+$font-size-small = 12px;
+$font-size-medium = 14px;
+$font-size-medium-x = 16px;
+$font-size-large = 18px;
+$font-size-large-x = 22px;
+
+.listview {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: $color-background;
+
+  .list-group {
+    padding-bottom: 20px;
+
+    .list-group-title {
+      height: 30px;
+      line-height: 30px;
+      padding-left: 20px;
+      font-size: $font-size-small;
+      color: $color-text-l;
+      background: $color-highlight-background;
+    }
+
+    .list-group-item {
+      display: flex;
+      align-items: center;
+      padding: 10px 0 0 30px;
+
+      .avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+      }
+
+      .name {
+        margin-left: 20px;
+        color: $color-text-l;
+        font-size: $font-size-medium;
+      }
+    }
+  }
+
+  .list-shortcut {
+    position: absolute;
+    z-index: 30;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    padding: 20px 0;
+    border-radius: 10px;
+    text-align: center;
+    background: $color-background-d;
+    font-family: Helvetica;
+
+    .item {
+      padding: 3px;
+      line-height: 1;
+      color: $color-text-l;
+      font-size: $font-size-small;
+
+      &.current {
+        color: $color-theme;
+      }
+    }
+  }
+
+  .list-fixed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    .fixed-title {
+      height: 30px;
+      line-height: 30px;
+      padding-left: 20px;
+      font-size: $font-size-small;
+      color: $color-text-l;
+      background: $color-highlight-background;
+    }
+  }
+
+  .loading-container {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+</style>
