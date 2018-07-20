@@ -4,7 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import Vuex from 'vuex'
-import store from './store'
+import store from './store/index.ts'
 import Util from '@/common/js/util'
 
 import 'muse-ui/dist/muse-ui.css'
