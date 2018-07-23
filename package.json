@@ -29,6 +29,7 @@
     "cssnano-preset-advanced": "^4.0.0-rc.2",
     "eruda": "^1.5.0",
     "glob": "^7.1.2",
+    "mockjs": "^1.0.1-beta3",
     "muse-ui": "^3.0.0-rc.4",
     "postcss-aspect-ratio-mini": "^0.0.2",
     "postcss-cssnext": "^3.1.0",

@@ -7,13 +7,17 @@ import Vuex from 'vuex'
 import store from './store/index'
 import Util from '@/common/js/util'
 
+import Axios from '@/config/axios.js'
 import 'muse-ui/dist/muse-ui.css'
 import VueTouch from 'vue-touch-easyhi'
 
 import VueLazyLoad from 'vue-lazyload'
 import '@/common/css/index.styl'
 
+import '@/mock/'
+
 Vue.prototype.$util = Util
+Vue.prototype.$http = Axios
 Vue.config.productionTip = false
 
 Vue.use(VueTouch)
