@@ -20,6 +20,17 @@ Vue多页面配置，开箱即用的脚手架
 
 + [ ] 自动化测试 --未完成
 
+
+## 如何引入共用文件
+- `@` 为项目根目录(src目录)
+- `#` 为全局公用组件(src/components)
+- `^` 为模块目录(src/module/模块)
+- `%` 为common目录(src/common)
+
+## 推荐写法
+Vuex推荐使用`typescript`编写，保证代码可读性
+.vue推荐使用ES6编写，保证灵活
+
 # npm install
 
 https://github.com/chengpeixin/VueMultiPage.git

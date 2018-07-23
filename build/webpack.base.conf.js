@@ -10,6 +10,7 @@ function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
 
+// 是否使用ESlint
 // const createLintingRule = () => ({
 //   test: /\.(js|vue)$/,
 //   loader: 'eslint-loader',
@@ -31,14 +32,19 @@ module.exports = {
       config.build.assetsPublicPath : config.dev.assetsPublicPath
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json', 'ts'],
+    extensions: ['.js', '.vue', '.json', '.ts'],
     alias: {
+      // 定义全局引入路径标识符
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
+      '#': resolve('src/components'),
+      '^': resolve('src/module'),
+      '%': resolve('src/common')
     }
   },
   module: {
     rules: [
+      // 是否启用ESlint
       // ...(config.dev.useEslint ? [createLintingRule()] : []),
       {
         test: /\.vue$/,
