@@ -4,7 +4,12 @@ import Mock from 'mockjs'
 // 获取对象
 Mock.mock('/data/json', /post|get/i, (req, res) => {
   return {
-    data: ['a', 'b']
+    data: [
+      {
+        name:"12",
+        age:'123'
+      }
+    ]
   }
 })
 
