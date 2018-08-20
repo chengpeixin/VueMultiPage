@@ -110,6 +110,10 @@ export default {
         if (-newY >= height1 && -newY < height2) {
           this.currentIndex = i
           this.diff = height2 + newY
+<<<<<<< HEAD
+=======
+          console.log(this.currentIndex)
+>>>>>>> 9f5066eb1243dd29cfe52d82207e5fcc721db840
           return;
         }
       }
@@ -117,7 +121,10 @@ export default {
       this.currentIndex = listHeight.length - 2
     },
     diff (newVal) {
+<<<<<<< HEAD
       console.log(newVal)
+=======
+>>>>>>> 9f5066eb1243dd29cfe52d82207e5fcc721db840
       let fixedTop =
         newVal > 0 && newVal < TITLE_HEIGHT ? newVal - TITLE_HEIGHT : 0
       if (this.fixedTop === fixedTop) return
