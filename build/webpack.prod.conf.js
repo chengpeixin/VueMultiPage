@@ -163,7 +163,6 @@ for (var pathname in pages) {
     conf.chunks = ['manifest', 'vendor', pathname];
     conf.hash = true;
   }
-
   webpackConfig.plugins.push(new HtmlWebpackPlugin(conf));
 }
 

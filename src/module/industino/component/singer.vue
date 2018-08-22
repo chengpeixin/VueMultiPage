@@ -2,10 +2,10 @@
   <div>
     <Scroll class="listview" :data="data" ref="listview" :listenScroll="listenScroll" @scroll="scroll" :probeType="probeType">
       <ul>
-        <li v-for="(GroupIndex,group) in data" class="list-group" ref="listGroup" :key="GroupIndex">
+        <li v-for="(group,index) in data" class="list-group" ref="listGroup" :key="index">
           <h2 class="list-group-title">{{group.title}}</h2>
           <ul>
-            <li v-for="(itemIndex,item) in group.items" class="list-group-item" :key="itemIndex">
+            <li v-for="(item,index) in group.items" class="list-group-item" :key="index">
               <img class="avatar" v-lazy="item.avatar" />
               <span class="name">{{item.name}}</span>
             </li>
