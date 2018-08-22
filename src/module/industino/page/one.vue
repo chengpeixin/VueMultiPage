@@ -5,11 +5,10 @@
 </template>
 
 <script>
-import { getData } from './../service/getData';
-import { getPeople } from './../service/getData';
-import Singer from '@/common/js/singer.js';
-import ListView from '@/module/industino/component/singer';
-const HOT_NAME = '热门';
+import { getPeople } from './../service/getData'
+import Singer from '@/common/js/singer.js'
+import ListView from '@/module/industino/component/singer'
+const HOT_NAME = '热门'
 const HOT_SINGE_LEN = 10
 const list = getPeople().data.list
 export default {

@@ -22,7 +22,6 @@ if (command == "build:alpha") {
   log(chalk.green('当前环境为:release'));
   API_HOST = release;
 } else {
-  log(chalk.red("无法找到对应环境！按照默认环境启动"))
   API_HOST = alpha;
 }
 module.exports = {

@@ -2,10 +2,10 @@
   <div>
     <Scroll class="listview" :data="data" ref="listview" :listenScroll="listenScroll" @scroll="scroll" :probeType="probeType">
       <ul>
-        <li v-for="group in data" class="list-group" ref="listGroup">
+        <li v-for="(GroupIndex,group) in data" class="list-group" ref="listGroup" :key="GroupIndex">
           <h2 class="list-group-title">{{group.title}}</h2>
           <ul>
-            <li v-for="item in group.items" class="list-group-item">
+            <li v-for="(itemIndex,item) in group.items" class="list-group-item" :key="itemIndex">
               <img class="avatar" v-lazy="item.avatar" />
               <span class="name">{{item.name}}</span>
             </li>
@@ -14,7 +14,7 @@
       </ul>
       <div class="list-shortcut">
         <ul>
-          <li v-for="(item,index) in shortcutList" class="item" :data-index="index" @touchstart.stop="onShortcut" @touchmove="onShortcuttouchmove" :class="{'current':currentIndex==index}">
+          <li v-for="(item,index) in shortcutList" class="item" :data-index="index" @touchstart.stop="onShortcut" @touchmove="onShortcuttouchmove" :class="{'current':currentIndex==index}" :key="item">
             {{item}}
           </li>
         </ul>
@@ -29,8 +29,8 @@
 </template>
 
 <script>
-import Scroll from '@/components/scroll.vue';
-import getData from '@/common/js/dom.js';
+import Scroll from '@/components/scroll.vue'
+import getData from '@/common/js/dom.js'
 const ANCHOR_HEIGHT = 18
 const TITLE_HEIGHT = 30
 export default {
@@ -101,7 +101,7 @@ export default {
       // 最开始滚动
       if (newY > 0) {
         this.currentIndex = 0
-        return;
+        return
       }
       // 在中间部分滚动
       for (let i = 0; i < listHeight.length - 1; i++) {
@@ -110,21 +110,13 @@ export default {
         if (-newY >= height1 && -newY < height2) {
           this.currentIndex = i
           this.diff = height2 + newY
-<<<<<<< HEAD
-=======
-          console.log(this.currentIndex)
->>>>>>> 9f5066eb1243dd29cfe52d82207e5fcc721db840
-          return;
+          return
         }
       }
       // 滚动到底部且-newY大于最后一个元素的上限
       this.currentIndex = listHeight.length - 2
     },
     diff (newVal) {
-<<<<<<< HEAD
-      console.log(newVal)
-=======
->>>>>>> 9f5066eb1243dd29cfe52d82207e5fcc721db840
       let fixedTop =
         newVal > 0 && newVal < TITLE_HEIGHT ? newVal - TITLE_HEIGHT : 0
       if (this.fixedTop === fixedTop) return
@@ -146,11 +138,11 @@ export default {
     },
     fixedTitle () {
       if (this.scrollY > 0) {
-        return '';
+        return ''
       }
       return this.data[this.currentIndex]
         ? this.data[this.currentIndex].title
-        : '没有';
+        : '没有'
     }
   },
   components: { Scroll }

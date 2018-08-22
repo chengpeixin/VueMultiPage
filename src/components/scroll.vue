@@ -5,7 +5,7 @@
 </template>
 
 <script type="text/ecmascript-6">
-import BScroll from 'better-scroll';
+import BScroll from 'better-scroll'
 export default {
   props: {
     probeType: {
